@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zahoor AutoSpa - Car & Heavy Vehicle Washing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #222;
+    }
+    header {
+      background: #1e3c72;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #2a5298;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      display: block;
+    }
+    nav a:hover {
+      background: #1e3c72;
+    }
+    section {
+      padding: 20px;
+      background: white;
+      margin: 15px;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #1e3c72;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .service {
+      flex: 1 1 250px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .contact, .payment, .map, .booking {
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      background: #1e3c72;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .btn:hover {
+      background: #16325c;
+    }
+    .qr img {
+      max-width: 200px;
+      margin: 10px auto;
+      display: block;
+    }
+    iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      border-radius: 8px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 400px;
+      margin: auto;
+    }
+    input, select, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    footer {
+      background: #1e3c72;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    /* Floating WhatsApp button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 22px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Zahoor AutoSpa</h1>
+    <p>Professional Car & Heavy Vehicle Washing Service</p>
+  </header>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#payment">Payment</a>
+    <a href="#map">Location</a>
+    <a href="#booking">Book Now</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="services">
+    <h2>Our Services & Rates</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Car Wash</h3>
+        <p>₹350 - ₹500</p>
+        <p>Foam Wash + Polish for all Cars</p>
+      </div>
+      <div class="service">
+        <h3>Heavy Vehicle Wash</h3>
+        <p>₹700 - ₹1000</p>
+        <p>Full Body Wash + Detailing</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="payment" class="payment">
+    <h2>Payment Options</h2>
+    <p>Scan the QR to pay online</p>
+    <div class="qr">
+      <img src="qr.png" alt="Payment QR">
+    </div>
+  </section>
+
+  <section id="map" class="map">
+    <h2>Our Location</h2>
+    <p>Mansbal Road, Ganderbal, Kashmir</p>
+    <iframe src="https://www.google.com/maps?q=34.244391,74.711572&z=15&output=embed"></iframe>
+  </section>
+
+  <section id="booking" class="booking">
+    <h2>Book Online</h2>
+    <form onsubmit="sendWhatsApp(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="vehicle" placeholder="Vehicle Type (Car/Truck)" required>
+      <select id="service">
+        <option value="Car Wash">Car Wash</option>
+        <option value="Heavy Vehicle Wash">Heavy Vehicle Wash</option>
+      </select>
+      <input type="date" id="date" required>
+      <textarea id="notes" placeholder="Additional Notes"></textarea>
+      <button type="submit" class="btn">Book on WhatsApp</button>
+    </form>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p><b>Call:</b> <a href="tel:+919596516880" class="btn">9596516880</a></p>
+    <p><b>WhatsApp:</b> <a href="https://wa.me/919797472650" class="btn">9797472650</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Zahoor AutoSpa | Visit us at <b>www.zahoorautospa.py</b></p>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919797472650" class="whatsapp-float">💬</a>
+
+  <script>
+    function sendWhatsApp(event) {
+      event.preventDefault();
+      let name = document.getElementById("name").value;
+      let vehicle = document.getElementById("vehicle").value;
+      let service = document.getElementById("service").value;
+      let date = document.getElementById("date").value;
+      let notes = document.getElementById("notes").value;
+      let msg = `Booking Request:%0AName: ${name}%0AVehicle: ${vehicle}%0AService: ${service}%0ADate: ${date}%0ANotes: ${notes}`;
+      window.open(`https://wa.me/919797472650?text=${msg}`, "_blank");
+    }
+  </script>
+
+</body>
+</html>
